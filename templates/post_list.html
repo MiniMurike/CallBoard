@@ -25,6 +25,9 @@ Orders list
     {{ alert }}
 </div>
 {% endif %}
+{% if user.is_authenticated %}
+<a href="{% url 'create_post' %}">Create post</a>
+{% endif %}
 {% if posts %}
 <table>
     {% for post in posts %}
