@@ -1,0 +1,23 @@
+{% extends 'flatpages/default.html' %}
+
+{% load i18n %}
+
+{% block title %}
+Delete post
+{% endblock %}
+
+{% block content %}
+
+{# Checking for a nonlegal attempting to delete others post #}
+{% if user != post.creator %}
+<script>
+  location = '/'
+</script>
+{% endif %}
+
+<form action="" method="post">
+  {% csrf_token %}
+  <h1>{% trans 'Are you sure want to delete' %} <b>'[{{ post.role }}] {{ post.title }}' ?</b></h1>
+  <input type="submit" value="Submit">
+</form>
+{% endblock %}

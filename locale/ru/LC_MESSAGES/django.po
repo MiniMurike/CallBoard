@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-06 15:07+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\Posts\filters.py:37
+msgid "Any"
+msgstr "Любой"
+
+#: .\Posts\views.py:123
+msgid "Reply confirmation"
+msgstr "Подтверждение отклика"
+
+#: .\Posts\views.py:125
+#, python-brace-format
+msgid "Your reply to [{post.role}] {post.title} has been confirmed."
+msgstr "Ваш отклик на [{post.role}] {post.title} был одобрен"
+
+#: .\Posts\views.py:126
+msgid ""
+"In order to continue: private message to post author: {User.objects."
+"get(id=author.id).email}"
+msgstr ""
+"Для того чтобы продолжить, напишите автору заявки: {User.objects."
+"get(id=author.id).email}"
+
+#: .\Posts\views.py:134
+msgid "Your reply denied"
+msgstr "Ваш отклик был отклонён"
+
+#: .\Posts\views.py:136
+#, python-brace-format
+msgid "Your reply to [{post.role}] {post.title} has been denied"
+msgstr "Ваш отклик на [{post.role}] {post.title} был отклонён"
+
+#: .\Posts\views.py:149
+msgid "Notification has been send to replier"
+msgstr "Уведомление было отправлено пользователю"
+
+#: .\accounts\views.py:42
+msgid "Info from the CallBoard"
+msgstr "Информация от CallBoard"
+
+#: .\templates\account\email\base_message.txt:3
+#, python-format
+msgid ""
+"\n"
+"    Hello from %(site_name)s!\n"
+msgstr ""
+"\n"
+"    Здравствуйте от %(site_name)s!\n"
+
+#: .\templates\account\email\email_confirmation_message.txt:8
+#, python-format
+msgid ""
+"\n"
+"You've received this email because %(user_display)s\n"
+"has given your email to register an account on %(site_domain)s.\n"
+"\n"
+"To confirm this is correct, go to %(activate_url)s\n"
+"\n"
+msgstr ""
+"\n"
+"Вы получили это сообщение потому что %(user_display)s\n"
+"указал вашу почту для регистрации аккаунта на %(site_domain)s.\n"
+"\n"
+"Для подтверждения почты, перейдите %(activate_url)s\n"
+"\n"
+
+#: .\templates\post_delete.html:20
+msgid "Are you sure want to delete"
+msgstr "Вы действительно хотите удалить"
+
+#: .\templates\post_list.html:43
+msgid "There is no orders with these parameters"
+msgstr "Заявок с такими параметрами нет"
+
+#: .\templates\profile.html:24
+msgid "Replies to your posts:"
+msgstr "Отклики к вашим заявкам:"
+
+#: .\templates\profile.html:28
+msgid "Reply to:"
+msgstr "Ответить:"
+
+#: .\templates\profile.html:29
+msgid "From:"
+msgstr "От:"
+
+#: .\templates\profile.html:30
+msgid "Click here to see replier's text"
+msgstr "Нажмите здесь, чтобы просмотреть ваш отклик"
+
+#: .\templates\profile.html:33
+msgid "There is no one replied to any of yours posts"
+msgstr "Ещё никто не откликнулся на ваши заявки"
+
+#: .\templates\profile.html:37
+msgid "Your replies:"
+msgstr "Ваши отклики"
+
+#: .\templates\profile.html:42
+msgid "Click here to see your reply"
+msgstr "Нажмите здесь, чтобы просмотреть ваш отклик"
+
+#: .\templates\profile.html:45
+msgid "You didn't reply to anyone's post"
+msgstr "Вы никому не откликались"

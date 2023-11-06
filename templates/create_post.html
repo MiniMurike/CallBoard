@@ -1,0 +1,26 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Create post
+{% endblock title %}
+
+{% block style %}
+{{ form.media }}
+{% endblock %}
+
+{% block content %}
+
+{# Check for attempting to update others post #}
+{% if post is not None and user != post.creator %}
+<script>
+    location = '/'
+</script>
+{% endif %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create">
+</form>
+
+{% endblock %}

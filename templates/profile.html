@@ -1,0 +1,48 @@
+{% extends 'flatpages/default.html' %}
+
+{% load i18n %}
+
+{% block title %}
+{{ user }}
+{% endblock %}
+
+{% block style %}
+<style>
+  td {
+    padding: 20px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+{% if user.is_anonymous or model_user.id != user.id %}
+  <script>
+    location = '/'
+  </script>
+{% endif %}
+
+<h1>{% trans 'Replies to your posts:' %}</h1>
+<table>
+  {% for reply in replies_to_user %}
+  <tr>
+    <td>{% trans 'Reply to:' %} <a href="{% url 'post_detail' reply.post.id %}">[{{ reply.post.role }}] {{ reply.post.title }}</a></td>
+    <td>{% trans 'From:' %} {{ reply.user.username }}</td>
+    <td><a href="{% url 'detail_reply' reply.id %}">{% trans "Click here to see replier's text" %}</a></td>
+  </tr>
+  {% empty %}
+  <tr><td>{% trans 'There is no one replied to any of yours posts' %}</td></tr>
+  {% endfor %}
+</table>
+
+<h1>{% trans 'Your replies:' %}</h1>
+<table>
+  {% for reply in replied_from_user %}
+  <tr>
+    <td>Reply to: <a href="{% url 'post_detail' reply.post.id %}">[{{ reply.post.role }}] {{ reply.post.title }}</a></td>
+    <td><a href="{% url 'detail_reply' reply.id %}">{% trans 'Click here to see your reply' %}</a></td>
+  </tr>
+  {% empty %}
+  <tr><td>{% trans "You didn't reply to anyone's post" %}</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

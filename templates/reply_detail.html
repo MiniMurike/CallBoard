@@ -1,0 +1,48 @@
+{% extends 'flatpages/default.html' %}
+
+{% load static %}
+
+{% block title %}
+Reply
+{% endblock %}
+
+{% block style %}
+<style>
+    button {
+        color: black;
+        border-radius: 5px;
+    }
+    button[value="confirm"] {
+        background: green;
+    }
+    button[value="deny"] {
+        background: red;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% if reply.user.id == user.id or reply.post.creator.id == user.id %}
+{% else %}
+    <script>
+        location = '/'
+    </script>
+{% endif %}
+
+<h1>[{{ reply.post.role }}] {{ reply.post.title }}</h1>
+<hr>
+{{ reply.text | safe }}
+
+{% if reply.post.creator.id == user.id %}
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="post" value="{{ reply.post.id }}">
+    <input type="hidden" name="replier" value="{{ reply.user.id }}">
+    <input type="hidden" name="author" value="{{ reply.post.creator.id }}">
+    <button name="action" type="submit" value="confirm">Confirm</button>
+    <button name="action" type="submit" value="deny">Deny</button>
+</form>
+{% endif %}
+
+{% endblock %}

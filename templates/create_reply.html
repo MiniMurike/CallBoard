@@ -1,0 +1,32 @@
+{% extends 'flatpages/default.html' %}
+
+{% load static %}
+
+{% block title %}
+[{{ post.role }}] {{ post.title }}
+{% endblock %}
+
+{% block style %}
+{{ form.media }}
+{% endblock %}
+
+{% block content %}
+{% if post is None %}
+    <script>
+        location = '/'
+    </script>
+{% endif %}
+<h1>
+[{{ post.role }}] {{ post.title }}
+</h1>
+{{ post.text | safe }}
+<hr>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="user" value="{{ user.id }}">
+    <input type="hidden" name="post" value="{{ post.id }}">
+    <input type="submit" value="Send">
+</form>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'flatpages/default.html' %}
+
+{% load static %}
+
+{% block content %}
+<h1>[{{ post.role }}] {{ post.title }}</h1>
+<h3>{{ post.text | safe }}</h3>
+<p>{{ post.creator }}</p>
+<p>{{ post.created_at }}</p>
+
+<hr>
+<div>
+    <h2>Leave a reply</h2>
+</div>
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="post_id" value="{{ post.id }}">
+    <input type="submit" value="Reply">
+</form>
+{% endblock %}

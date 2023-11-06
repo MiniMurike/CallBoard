@@ -1,0 +1,45 @@
+{% extends 'flatpages/default.html' %}
+
+{% load i18n %}
+
+{% block title %}
+Orders list
+{% endblock %}
+
+{% block style %}
+<style>
+    td {
+        padding: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<form method="get" action="">
+    {{ filterset.form.as_p }}
+    <input type="submit" value="Search">
+</form>
+<hr>
+{% if alert is not None %}
+<div>
+    {{ alert }}
+</div>
+{% endif %}
+{% if posts %}
+<table>
+    {% for post in posts %}
+    <tr>
+        <td><b><a href="{% url 'post_detail' post.id %}">[{{ post.role }}] {{ post.title }}</a></b></td>
+        <td>{{ post.creator.username }}</td>
+        <td>{{ post.created_at }}</td>
+        {% if user.id == post.creator.id %}
+            <td><a href="{% url 'post_edit' post.id %}">Edit post</a></td>
+            <td><a href="{% url 'post_delete' post.id %}">Delete post</a></td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2>{% trans 'There is no orders with these parameters' %}</h2>
+{% endif %}
+{% endblock %}
